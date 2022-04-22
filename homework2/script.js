@@ -1,12 +1,12 @@
 class myPromise {
 
-    constructor(callbackFn) {
+    constructor(exFun) {
         this.handleError = () => { };
         this.handleSuccess = () => { };
         this.resolveFn = this.resolveFn.bind(this);
         this.rejectFn = this.rejectFn.bind(this);
 
-        callbackFn(this.resolveFn, this.rejectFn);
+        exFun(this.resolveFn, this.rejectFn);
     }
 
     then(handleSuccess) {
