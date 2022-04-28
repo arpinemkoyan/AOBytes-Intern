@@ -1,0 +1,40 @@
+.table {
+    width: 90%;
+    border: 1px solid;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.table1,
+.table2 {
+    border: 1px solid;
+    width: 100%;
+
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid;
+}
+
+.list-ele {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid;
+    justify-content: space-between;
+}
+
+.list-ele h1 {
+    margin: 0;
+}
+
+.list-ele-right {
+    display: flex;
+    align-items: center;
+}
