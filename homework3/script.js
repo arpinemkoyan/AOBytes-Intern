@@ -1,96 +1,45 @@
-/*
-* type: string  'div', 'span', etc
-* attrs: object  class, id, etc
-* children: DomElement | DomElement[]
-*/
-
-class DomElement {
-
-    constructor(type, attrs, children) {
-        this.type = type;
-        this.attrs = attrs;
-        this.children = children;
-    }
-
-    rander() {
-        if (this.type.includes('div')) {
-            const divEle = new DivElement(this.attrs, this.children);
-            return divEle.draw();
-
-        }
-        if (this.type.includes('span')) {
-            const spanEle = new SpanElement(this.attrs, this.children);
-            return spanEle.draw();
-        }
-
-    }
-
-}
-
-class DivElement extends DomElement {
-    constructor(attrs, children) {
-        super();
-        this.attrs = attrs;
-        this.children = children
-    }
-    draw() {
-        const div = document.createElement("div");
-        if (Object.keys(this.attrs).length > 0) {
-            for (let i in this.attrs) {
-                if (i === 'class') {
-                    div.className = `${this.attrs[i]}`;
-                }
-                else {
-                    div.setAttribute(i, `${this.attrs[i]}`);
-                }
-            }
-        }
-        if (typeof this.children === 'string')
-            div.textContent = this.children
-
-        return div;
-    }
-}
-
-class SpanElement extends DomElement {
-    constructor(attrs, children) {
-        super();
-        this.attrs = attrs;
-        this.children = children
-    }
-    draw() {
-        const span = document.createElement("span");
-
-        if (Object.keys(this.attrs).length > 0) {
-            for (let i in this.attrs) {
-                if (i === 'class') {
-                    span.className = `${this.attrs[i]}`;
-                }
-                else {
-                    span.setAttribute(i, `${this.attrs[i]}`);
-                }
-            }
-        }
-
-        if (typeof children === 'string')
-            span.textContent = this.children
-
-        return span;
-    }
-}
-
 function el(type, attrs, children) {
-    const dom = new DomElement(type, attrs, children)
 
-    return {
-        draw() {
-            return dom.rander()
+    const ele = document.createElement(type);
 
+    if (Object.keys(attrs)) {
+        for (let i in attrs) {
+            ele.setAttribute(i, `${attrs[i]}`);
         }
-    };
+    }
+
+    if (typeof children === 'string') {
+        ele.innerHTML = children
+
+    } else {
+        if (children !== null) {
+            try {
+                children.map(child => child).forEach(nods => {
+                    ele.appendChild(nods)
+
+                });
+            }
+            catch {
+                ele.appendChild(children)
+            }
+        }
+
+    }
+    return ele;
 
 }
+// Test case 3.
+const tree =
+    el("form", { action: '/some_action' }, [
+        el("label", { for: 'name' }, "First name:"),
+        el("br", {}, null),
+        el("input", { type: 'text', id: 'name', name: 'name', value: "My name" }, null),
+        el("br", {}, null),
+        el("label", { for: 'last_name' }, "Last name:"),
+        el("br", {}, null),
+        el("input", { type: 'text', id: 'last_name', name: 'last_name', value: "My second name" }, null),
+        el("br", {}, null),
+        el("input", { type: 'submit', value: "Submit" }, null),
+    ]);
 
-const tree = el("div", { "class": "some_classname", "id": "some_id" }, "Hello World");
-
-document.getElementById("root").appendChild(tree.draw());
+document.getElementById("root").appendChild(tree);
