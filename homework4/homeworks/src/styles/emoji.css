@@ -1,0 +1,9 @@
+.emoji-name {
+    height: 17px;
+    appearance: none;
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: transparent;
+}

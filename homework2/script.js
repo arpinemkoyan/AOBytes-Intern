@@ -40,7 +40,7 @@ const myAjaxMethod = (url, config) => {
         xhr.open(config.method, url, true);
 
         xhr.onload = function () {
-            if (xhr.status == 200) {
+            if (xhr.status === 200) {
                 resolve(xhr.response);
             }
             else {
