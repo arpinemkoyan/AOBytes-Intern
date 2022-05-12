@@ -1,0 +1,45 @@
+.comments-content {
+    background: linear-gradient(45deg, #238fa8, #0dc1a0);
+    border-radius: 12px;
+    padding: 14px 5px;
+    border: navajowhite;
+    margin-bottom: 5px !important;
+
+}
+
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comments-content span {
+    float: right;
+    font-size: 14px;
+    color: #59d0e0;
+    cursor: default;
+}
+
+.text {
+    width: 70%;
+}
+
+.rate {
+    background-color: #faf3f3d6;
+    padding: 5px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 10px;
+}
+
+.child-comment {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #318082, #16afbc);
+    border: none;
+    padding: 10px;
+    margin-bottom: 5px !important;
+}

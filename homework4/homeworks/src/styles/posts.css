@@ -1,0 +1,57 @@
+.post {
+    border-radius: 37px;
+    background: linear-gradient(53deg, #2fd8e9, #27e6bc);
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 10px;
+}
+
+.post div {
+    margin-bottom: 19px;
+}
+
+.reply {
+    float: right;
+    font-size: 14px;
+    color: #348e9a;
+    cursor: default;
+    margin: -25px 7px;
+}
+
+.replying {
+    width: 80%;
+    margin: 5px auto;
+    border-radius: 18px;
+    background: linear-gradient(45deg, #1b8b8e, #2bcbc2);
+    border: none;
+
+}
+
+.replying input {
+    margin: 5px;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    border: 1px solid #1b868d;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.replying input[type='text'] {
+    width: 80%;
+
+
+}
+
+.replying input[type='number'] {
+    width: 11%;
+}
+
+button {
+    background: transparent;
+    border: 1px solid;
+    outline: none;
+    border-radius: 13px;
+    margin: 4px 7px;
+    padding: 5px;
+}
